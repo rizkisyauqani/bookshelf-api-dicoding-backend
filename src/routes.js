@@ -1,8 +1,10 @@
+const { saveBook } = require("./handler");
+
 const routes = [
   {
     method: "POST",
     path: "/books",
-    handler: () => {},
+    handler: saveBook,
   },
   {
     method: "GET",
@@ -25,3 +27,5 @@ const routes = [
     handler: () => {},
   },
 ];
+
+module.exports = routes
