@@ -8,5 +8,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^21.3.7",
+    "nodemon": "^3.1.0"
+  }
 }
