@@ -110,7 +110,7 @@ const editBookById = (request, h) => {
     readPage,
     reading,
   } = request.payload;
-  const updatedAt = new Date().toISOString()
+  const updatedAt = new Date().toISOString();
 
   const index = books.findIndex((book) => book.id === bookId);
 
@@ -144,14 +144,14 @@ const editBookById = (request, h) => {
       pageCount,
       readPage,
       reading,
-      updatedAt
+      updatedAt,
     };
     const response = h.response({
       status: "success",
       message: "Buku berhasil diperbarui",
     });
-    response.code(200)
-    return response
+    response.code(200);
+    return response;
   }
 
   const response = h.response({
@@ -162,4 +162,27 @@ const editBookById = (request, h) => {
   return response;
 };
 
-module.exports = { saveBook, getAllBooks, getBookById, editBookById };
+const deleteBookById = (request, h) => {
+  const { bookId } = request.params;
+
+  const index = books.findIndex(book => book.id === bookId)
+
+  if (index !== -1) {
+    books.splice(index, 1)
+    const response = h.response({
+      status: "success",
+      message: "Buku berhasil dihapus",
+    });
+    response.code(200)
+    return response
+  }
+
+  const response = h.response({
+    status: "fail",
+    message: "Buku gagal dihapus. Id tidak ditemukan",
+  });
+  response.code(404)
+  return response
+};
+
+module.exports = { saveBook, getAllBooks, getBookById, editBookById, deleteBookById };
