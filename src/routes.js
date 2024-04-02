@@ -1,4 +1,4 @@
-const { saveBook } = require("./handler");
+const { saveBook, getAllBooks } = require("./handler");
 
 const routes = [
   {
@@ -9,7 +9,7 @@ const routes = [
   {
     method: "GET",
     path: "/books",
-    handler: () => {},
+    handler: getAllBooks,
   },
   {
     method: "GET",
@@ -28,4 +28,4 @@ const routes = [
   },
 ];
 
-module.exports = routes
+module.exports = routes;
