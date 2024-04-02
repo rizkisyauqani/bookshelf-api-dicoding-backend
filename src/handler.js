@@ -35,7 +35,7 @@ const saveBook = (request, h) => {
 
   books.push(newBook);
 
-  if (name === "") {
+  if (!name) {
     const response = h.response({
       status: "fail",
       message: "Gagal menambahkan buku. Mohon isi nama buku",
@@ -69,4 +69,15 @@ const saveBook = (request, h) => {
   }
 };
 
-module.exports = { saveBook };
+const getAllBooks = () => ({
+  status: "success",
+  data: {
+    books: books.map((book) => ({
+      id: book.id,
+      name: book.name,
+      publisher: book.publisher,
+    })),
+  },
+});
+
+module.exports = { saveBook, getAllBooks };
