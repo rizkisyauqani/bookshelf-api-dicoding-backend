@@ -3,36 +3,35 @@ const {
   getAllBooks,
   getBookById,
   editBookById,
-  deleteBookById,
-  getAllBooksByName,
-} = require("./handler");
+  deleteBookById
+} = require('./handler')
 
 const routes = [
   {
-    method: "POST",
-    path: "/books",
-    handler: saveBook,
+    method: 'POST',
+    path: '/books',
+    handler: saveBook
   },
   {
-    method: "GET",
-    path: "/books",
-    handler: getAllBooks,
+    method: 'GET',
+    path: '/books',
+    handler: getAllBooks
   },
   {
-    method: "GET",
-    path: "/books/{bookId}",
-    handler: getBookById,
+    method: 'GET',
+    path: '/books/{bookId}',
+    handler: getBookById
   },
   {
-    method: "PUT",
-    path: "/books/{bookId}",
-    handler: editBookById,
+    method: 'PUT',
+    path: '/books/{bookId}',
+    handler: editBookById
   },
   {
-    method: "DELETE",
-    path: "/books/{bookId}",
-    handler: deleteBookById,
-  },
-];
+    method: 'DELETE',
+    path: '/books/{bookId}',
+    handler: deleteBookById
+  }
+]
 
-module.exports = routes;
+module.exports = routes
