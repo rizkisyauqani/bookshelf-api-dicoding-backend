@@ -1,4 +1,11 @@
-const { saveBook, getAllBooks, getBookById, editBookById, deleteBookById } = require("./handler");
+const {
+  saveBook,
+  getAllBooks,
+  getBookById,
+  editBookById,
+  deleteBookById,
+  getAllBooksByName,
+} = require("./handler");
 
 const routes = [
   {
