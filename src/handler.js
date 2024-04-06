@@ -73,7 +73,7 @@ const getAllBooks = (request) => {
   const { name } = request.query
   const { reading } = request.query
   const { finished } = request.query
-  let result 
+  let result
   if (name) {
     result = books.filter((book) =>
       book.name.toLowerCase().includes(name.toLowerCase())
