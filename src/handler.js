@@ -73,14 +73,15 @@ const getAllBooks = (request) => {
   const { name } = request.query
   const { reading } = request.query
   const { finished } = request.query
+  let result 
   if (name) {
-    books.filter((book) =>
+    result = books.filter((book) =>
       book.name.toLowerCase().includes(name.toLowerCase())
     )
     return {
       status: 'success',
       data: {
-        books: books.map(({ id, name, publisher }) => ({
+        books: result.map(({ id, name, publisher }) => ({
           id,
           name,
           publisher
@@ -89,11 +90,11 @@ const getAllBooks = (request) => {
     }
   }
   if (reading === '1') {
-    books.filter((book) => book.reading === true)
+    result = books.filter((book) => book.reading === true)
     return {
       status: 'success',
       data: {
-        books: books.map(({ id, name, publisher }) => ({
+        books: result.map(({ id, name, publisher }) => ({
           id,
           name,
           publisher
@@ -101,11 +102,11 @@ const getAllBooks = (request) => {
       }
     }
   } else if (reading === '0') {
-    books.filter((book) => book.reading === false)
+    result = books.filter((book) => book.reading === false)
     return {
       status: 'success',
       data: {
-        books: books.map(({ id, name, publisher }) => ({
+        books: result.map(({ id, name, publisher }) => ({
           id,
           name,
           publisher
@@ -114,11 +115,11 @@ const getAllBooks = (request) => {
     }
   }
   if (finished === '1') {
-    books.filter((book) => book.finished === true)
+    result = books.filter((book) => book.finished === true)
     return {
       status: 'success',
       data: {
-        books: books.map(({ id, name, publisher }) => ({
+        books: result.map(({ id, name, publisher }) => ({
           id,
           name,
           publisher
@@ -126,11 +127,11 @@ const getAllBooks = (request) => {
       }
     }
   } else if (finished === '0') {
-    books.filter((book) => book.finished === false)
+    result = books.filter((book) => book.finished === false)
     return {
       status: 'success',
       data: {
-        books: books.map(({ id, name, publisher }) => ({
+        books: result.map(({ id, name, publisher }) => ({
           id,
           name,
           publisher
@@ -138,7 +139,6 @@ const getAllBooks = (request) => {
       }
     }
   }
-
   return {
     status: 'success',
     data: {
